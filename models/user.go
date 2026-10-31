@@ -5,11 +5,11 @@ import "time"
 type User struct {
 	ID            uint      `gorm:"primaryKey" json:"id"`
 	NamaUser      string    `json:"nama_user"`
-	KataSandi     string    `json:"kata_sandi"`
-	NoTelp        string    `json:"no_telp"`
+	KataSandi     string    `json:"-"`
+	NoTelp        string    `json:"no_telp" gorm:"uniqueIndex"`
 	TanggalLahir  time.Time `json:"tanggal_lahir"`
 	JenisKelamin  string    `json:"jenis_kelamin"`
-	Email         string    `json:"email"`
+	Email         string    `json:"email" gorm:"uniqueIndex"`
 	Pekerjaan     string    `json:"pekerjaan"`
 	IDProvinsi    string    `json:"id_provinsi"`
 	IDKota        string    `json:"id_kota"`

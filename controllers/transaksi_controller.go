@@ -30,6 +30,12 @@ func CreateTrx(c *fiber.Ctx) error {
 		return c.Status(400).JSON(fiber.Map{"status": false, "message": "Produk tidak boleh kosong"})
 	}
 
+	// Alamat pengiriman harus milik user yang sedang login
+	var alamat models.Alamat
+	if err := config.DB.Where("id = ? AND user_id = ?", input.AlamatPengiriman, userID).First(&alamat).Error; err != nil {
+		return c.Status(400).JSON(fiber.Map{"status": false, "message": "Alamat pengiriman tidak ditemukan"})
+	}
+
 	var totalHarga float64
 	var details []models.DetailTransaksi
 
@@ -110,6 +116,7 @@ func GetTrxByID(c *fiber.Ctx) error {
 
 // PUT /trx/:id/status
 func UpdateStatusTrx(c *fiber.Ctx) error {
+	userID := c.Locals("user_id").(uint)
 	id := c.Params("id")
 	var input struct {
 		Status string `json:"status"`
@@ -120,7 +127,7 @@ func UpdateStatusTrx(c *fiber.Ctx) error {
 	}
 
 	var transaksi models.Transaksi
-	if err := config.DB.First(&transaksi, id).Error; err != nil {
+	if err := config.DB.Where("id = ? AND user_id = ?", id, userID).First(&transaksi).Error; err != nil {
 		return c.Status(404).JSON(fiber.Map{"status": false, "message": "Transaksi tidak ditemukan"})
 	}
 

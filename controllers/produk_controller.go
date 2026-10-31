@@ -178,11 +178,21 @@ func UpdateProduct(c *fiber.Ctx) error {
 
 // DELETE /product/:id
 func DeleteProduct(c *fiber.Ctx) error {
+	userID := c.Locals("user_id").(uint)
 	id := c.Params("id")
+
+	var toko models.Toko
+	if err := config.DB.Where("user_id = ?", userID).First(&toko).Error; err != nil {
+		return c.Status(400).JSON(fiber.Map{"status": false, "message": "Toko tidak ditemukan"})
+	}
 
 	var produk models.Produk
 	if err := config.DB.First(&produk, id).Error; err != nil {
 		return c.Status(404).JSON(fiber.Map{"status": false, "message": "Produk tidak ditemukan"})
+	}
+
+	if produk.TokoID != toko.ID {
+		return c.Status(403).JSON(fiber.Map{"status": false, "message": "Tidak punya akses"})
 	}
 
 	config.DB.Unscoped().Where("produk_id = ?", id).Delete(&models.LogProduk{})
