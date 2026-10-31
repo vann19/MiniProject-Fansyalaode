@@ -16,7 +16,7 @@ Dibangun dengan Golang, Fiber Framework, GORM ORM, dan MySQL
 **Rakamin Academy x Evermos**  
 Backend Developer Program 2025
 
-Dibuat oleh: **Baskoro Ramadhan**
+Dibuat oleh: **Ahmad Fansya**
 
 [📦 Demo](#) • [📖 Dokumentasi](#-dokumentasi-api-endpoint) • [🚀 Quick Start](#%EF%B8%8F-instalasi-dan-menjalankan-proyek)
 
@@ -175,8 +175,8 @@ Pastikan Anda sudah menginstall:
 ### 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/BaskoroR725/MiniProject-BaskoroRamadhan.git
-cd MiniProject-BaskoroRamadhan
+git clone https://github.com/vann19/MiniProject-Fansyalaode.git
+cd MiniProject-Fansyalaode
 ```
 
 ### 2️⃣ Install Dependencies
@@ -326,7 +326,7 @@ Buat environment baru di Postman:
 
 ```json
 {
-  "nama": "Baskoro test",
+  "nama": "Fansya test",
   "kata_sandi": "password123",
   "no_telp": "081234567890",
   "tanggal_lahir": "2000-01-01"
@@ -639,12 +639,11 @@ Terima kasih kepada:
 
 ## 📞 Kontak
 
-**Baskoro Ramadhan**  
+**Ahmad Fansya**  
 Junior Backend Developer
 
-📧 Email: baskorowebdev@gmail.com  
-🐙 GitHub: [@BaskoroR725](https://github.com/BaskoroR725)  
-💼 LinkedIn: [linkedin.com/in/baskoro-ramadhan](https://linkedin.com/in/baskoro-ramadhan)
+📧 Email: ahmadfansya660@gmail.com  
+🐙 GitHub: [@vann19](https://github.com/vann19)  
 
 ---
 
@@ -652,7 +651,7 @@ Junior Backend Developer
 
 ### 🌟 Jika project ini bermanfaat, jangan lupa kasih ⭐ di repository!
 
-**Made with ☕ by Baskoro Ramadhan**
+**Made with ☕ by Ahmad Fansya**
 
 _Rakamin x Evermos Virtual Internship 2025_
 
